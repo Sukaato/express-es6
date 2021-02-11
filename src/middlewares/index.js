@@ -1,7 +1,9 @@
-import { localMiddleware } from "./local.middleware";
-import { loggerMiddleware } from "./logger.middleware";
+import { IpParserMiddleware } from './IpParser.middleware';
+import { LocalMiddleware } from './Local.middleware';
+import { LoggerMiddleware } from './Logger.middleware';
 
-export const middleware = {
-    local: localMiddleware,
-    logger: loggerMiddleware
-}
+export const middlewares = [
+    LocalMiddleware,
+    IpParserMiddleware,
+    LoggerMiddleware,
+]

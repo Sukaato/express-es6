@@ -1,12 +1,10 @@
 {
+    "plugins": ["@babel/transform-named-capturing-groups-regex"],
     "presets": [
-        [
-            "@babel/preset-env",
-            {
-                "targets": {
-                    "esmodules": true
-                }
+        [ "@babel/env", {
+            "targets": {
+                "esmodules": true
             }
-        ]
+        }]
     ]
 }

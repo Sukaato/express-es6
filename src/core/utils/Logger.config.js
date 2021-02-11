@@ -1,10 +1,10 @@
-import log4js from 'log4js';
+import { Color } from './Color';
 
-export const logger = log4js.configure({
+export const loggerConfig = {
     appenders: {
         file: {
             type: 'file',
-            filename: './logs/application.log',
+            filename: './logs/application.session.log',
             maxLogSize: 10 * 1024 * 1024, // = 10Mb
             backups: 5, // keep five backup files
             compress: true, // compress the backups
@@ -18,7 +18,7 @@ export const logger = log4js.configure({
         },
         dateFile: {
             type: 'dateFile',
-            filename: './logs/application.session.log',
+            filename: './logs/application.log',
             layout: {
                 type: 'pattern',
                 pattern: '[%d{yyyy-MM-dd hh:mm:ss.SSS}] [%p] %c - %m',
@@ -30,7 +30,7 @@ export const logger = log4js.configure({
             level: 'debug',
             layout: {
                 type: 'pattern',
-                pattern: '[%d{yyyy-MM-dd hh:mm:ss.SSS}] [%p] %c - %m',
+                pattern: `${Color.foreground.CYAN}[%d{yyyy-MM-dd hh:mm:ss.SSS}] ${Color.RESET}[%p] ${Color.foreground.MAGENTA}%c ${Color.RESET}- ${Color.foreground.GREEN}%m${Color.RESET}`,
             },
         }
     },
@@ -40,8 +40,4 @@ export const logger = log4js.configure({
             level: 'trace'
         }
     }
-});
-
-const level = process.env.NODE_ENV === "production" ? 'info' : 'debug';
-
-log4js.getLogger().level = level;
+};
