@@ -1,0 +1,41 @@
+{
+  "name": "express-es6",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "author": {
+    "name": "Vaumoron Julien",
+    "url": "https://github.com/Sukaato",
+    "web": "https://sukaato.github.io"
+  },
+  "keywords": [
+    "expressJS",
+    "express",
+    "ES6",
+    "sample",
+    "rest",
+    "api"
+  ],
+  "scripts": {
+    "start": "nodemon src/app.js --exec babel-node",
+    "start:prod": "npm run transpile && node dist/app",
+    "transpile": "npm run clean && npm run build",
+    "clean": "rimraf dist/",
+    "build": "babel src/ -d dist/"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "express": "^4.17.1",
+    "helmet": "^3.23.3",
+    "log4js": "^6.3.0",
+    "node-fetch": "^2.6.1",
+    "rimraf": "^3.0.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.13",
+    "@babel/core": "^7.12.13",
+    "@babel/node": "^7.12.13",
+    "@babel/preset-env": "^7.12.13",
+    "nodemon": "^2.0.7"
+  }
+}
