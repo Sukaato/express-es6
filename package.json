@@ -17,7 +17,8 @@
     "api"
   ],
   "scripts": {
-    "start": "nodemon src/app.js --exec babel-node",
+    "start": "nodemon src/app",
+    "debug": "nodemon src/app --inspect",
     "start:prod": "npm run transpile && node dist/app",
     "transpile": "npm run clean && npm run build",
     "clean": "rimraf dist/",

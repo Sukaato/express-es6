@@ -3,7 +3,8 @@
     "ignore": ["src/**/*test.js"],
     "ext": "js, json",
     "env": {
-        "NODE_PORT": 3333,
+        "PORT": 3333,
         "NODE_ENV": "development"
-    }
+    },
+    "exec": "babel-node"
 }
